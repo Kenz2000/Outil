@@ -6,8 +6,6 @@
 
 import streamlit as st
 import pandas as pd
-import plotly.express as px
-import matplotlib.pyplot as plt
 import seaborn as sns
 
 
@@ -19,14 +17,14 @@ def f(d):
     if (d['Pose|Dépose']=='Pose'):
         if d['Local']=='Salle des billets':
             dd['Caméra']= max(round(float(d['surface'])*0.032-0.55 ,0),0)
-            dd['HP']=max(round((float(d['surface'])*(-0.0034))+5.42,0),0)
+            dd['HP']=max(round((float(d['surface'])*(4.77))/189,0),0)#max(round((float(d['surface'])*(-0.0034))+5.42,0),0)
             dd['IAV']=max(round(float(d['surface'])*0.02-0.42,0),0)
             dd['ADUP']=max(round(float(d['surface'])*0.0067+1.17,0),0)
             dd['LC']=max((round(float(d['surface'])*0.02+7,0))*2,0)
             
         elif d['Local']=='Couloirs':
             dd['Caméra']= max(round(float(d['surface'])*0.04-7,0),0)
-            dd['HP']=max(round(float(d['surface'])*(-0.0066)+5.84,0),0)
+            dd['HP']=max(round(float(d['surface'])*(10)/282,0),0)#max(round(float(d['surface'])*(-0.0066)+5.84,0),0)
             dd['IAV']=max(round(float(d['surface'])*0.03-6,0),0)
             dd['ADUP']=max(round(float(d['surface'])*0.00085,0),0)
             dd['LC']=0
@@ -49,7 +47,7 @@ def f(d):
         elif d['Local']=='Couloirs':
             dd['Caméra']= max(round(float(d['surface'])*(-0.0078)+6.21,0),0)
             dd['HP']=max(round(float(d['surface'])*0.03+0.13,0),0)
-            dd['IAV']=max(round(float(d['surface'])*(-0.015)+5.43,0),0)
+            dd['IAV']=max(round(float(d['surface'])*2/218,0),0)#max(round(float(d['surface'])*(-0.015)+5.43,0),0)
             dd['ADUP']=max(round(float(d['surface'])*(-0.039)+11.08,0),0)
             dd['LC']=0
             
